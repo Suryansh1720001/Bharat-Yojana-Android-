@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <WebView
@@ -13,11 +14,16 @@
         app:layout_constraintBottom_toTopOf="@id/help"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="5dp"
         android:id="@+id/webView"
-        />
+/>
 
-
+    <ImageView
+        android:id="@+id/error_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerInside"
+        android:visibility="gone"
+        app:srcCompat="@drawable/two" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -29,9 +35,10 @@
         android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:backgroundTint="#FFEB3B"
-        android:src="@drawable/baseline_help_24"
+        android:backgroundTint="#4a9e86"
+        android:src="@drawable/baseline_chat_24"
         android:background="@color/white"
+        app:backgroundTint="#4a9e86"
         />
 
 

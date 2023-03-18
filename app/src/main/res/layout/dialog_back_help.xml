@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/black"
+    >
+
+
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background = "@drawable/heading_bg_dialog"
+    android:id="@+id/fl_fab"
+    >
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Are you sure to end the conversation"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="22dp"
+        />
+
+</FrameLayout>
+
+    <LinearLayout
+
+        android:id="@+id/llbuttonback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_margin="5dp"
+
+        >
+
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            android:id="@+id/btnDeleteNo"
+            android:background="@drawable/custom_button"
+            android:text="No"
+            android:textAllCaps="false"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+
+            />
+        <Button
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            android:id="@+id/btnDeleteYes"
+            android:background="@drawable/custom_button"
+            android:text="Yes"
+            android:textAllCaps="false"
+            />
+
+
+    </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

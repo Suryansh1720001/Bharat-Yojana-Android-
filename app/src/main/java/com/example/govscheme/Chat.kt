@@ -1,16 +1,16 @@
 package com.example.govscheme
 
 import android.annotation.SuppressLint
+import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.telecom.Call
+import android.util.Log
 import android.view.View
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.govscheme.databinding.DialogBackHelpBinding
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
 import org.json.JSONArray
@@ -26,7 +26,7 @@ class Chat: AppCompatActivity() {
     private lateinit var messageList: MutableList<Message>
     private lateinit var messageAdapter: MessageAdapter
 
-//    private val JSON = MediaType.get("application/json; charset=utf-8")
+    //    private val JSON = MediaType.get("application/json; charset=utf-8")
     private val JSON = "application/json; charset=utf-8".toMediaType()
     private val client = OkHttpClient()
 
@@ -57,6 +57,8 @@ class Chat: AppCompatActivity() {
             welcomeTextView.visibility = View.GONE
         }
     }
+
+
 
     private fun addToChat(message: String, sentBy: String) {
         runOnUiThread {
@@ -119,4 +121,33 @@ class Chat: AppCompatActivity() {
             }
         })
     }
+
+
+    override fun onBackPressed() {
+        Log.d("MyActivity", "Back button pressed")
+        chatBack()
+
+    }
+
+    private fun chatBack() {
+        Toast.makeText(this@Chat,"chat",Toast.LENGTH_LONG).show()
+        val chatBack = Dialog(this)
+        chatBack.setCancelable(false)
+        val binding = DialogBackHelpBinding.inflate(layoutInflater)
+        chatBack.setContentView(binding.root)
+
+        binding?.btnDeleteNo?.setOnClickListener {
+            chatBack.dismiss()
+        }
+        binding?.btnDeleteYes?.setOnClickListener {
+            super.onBackPressed()
+            }
+
+
+
+    chatBack.show()
+
+    }
+
+
 }
