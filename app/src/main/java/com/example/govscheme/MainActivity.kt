@@ -10,6 +10,7 @@ import androidx.annotation.RequiresApi
 import com.example.govscheme.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var webView:WebView
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding?.root)
-        val webView = findViewById<WebView>(R.id.webView)
+        webView = findViewById<WebView>(R.id.webView)
         webViewSetUp(webView)
 
         binding?.help?.setOnClickListener{
@@ -33,7 +34,20 @@ class MainActivity : AppCompatActivity() {
             settings.safeBrowsingEnabled = true
             loadUrl("https://suryansh1720001.github.io/")
 
+
+
         }
 
+
     }
+
+    override fun onBackPressed() {
+        if (webView.canGoBack()) {
+            webView.goBack()
+        } else {
+            super.onBackPressed()
+        }
+    }
+
+   
 }

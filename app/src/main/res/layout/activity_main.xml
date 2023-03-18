@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/frame1"
+        app:layout_constraintBottom_toTopOf="@id/help"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="5dp"
@@ -19,51 +19,20 @@
 
 
 
-    <FrameLayout
-        android:layout_width="match_parent"
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bottom_navbar"
-        android:id="@+id/frame1"
-
->
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_gravity="center"
-        android:weightSum="2"
-        >
-
-        <TextView
-android:id="@+id/web"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="WEb"
-            android:gravity="center"
-            android:textSize="22sp"
-            android:textColor="@color/white"
-            android:layout_weight="1"
-            />
-
-        <TextView
-            android:id="@+id/help"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Help"
-            android:gravity="center"
-        android:textSize="22sp"
-        android:textColor="@color/white"
-        android:layout_weight="1"
+        android:backgroundTint="#FFEB3B"
+        android:src="@drawable/baseline_help_24"
+        android:background="@color/white"
         />
 
-
-    </LinearLayout>
-
-
-</FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
