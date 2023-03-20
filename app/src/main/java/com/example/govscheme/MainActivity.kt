@@ -1,143 +1,151 @@
-//package com.example.govscheme
-//
-//import android.animation.ObjectAnimator
-//import android.content.Intent
-//import android.os.Build
-//import androidx.appcompat.app.AppCompatActivity
-//import android.os.Bundle
-//import android.view.animation.OvershootInterpolator
-//import android.webkit.WebView
-//import android.webkit.WebViewClient
-//import androidx.annotation.RequiresApi
-//import com.example.govscheme.databinding.ActivityMainBinding
-//import com.google.android.material.floatingactionbutton.FloatingActionButton
-//
-//class MainActivity : AppCompatActivity() {
-//    private lateinit var webView:WebView
-//
-//    private var isFabOpen = false
-//    @RequiresApi(Build.VERSION_CODES.O)
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//
-//        var binding: ActivityMainBinding? = null
-//        super.onCreate(savedInstanceState)
-//        binding = ActivityMainBinding.inflate(layoutInflater)
-//        setContentView(binding?.root)
-//        webView = findViewById<WebView>(R.id.webView)
-//        webViewSetUp(webView)
-//
-//        binding?.help?.setOnClickListener{
-//            startActivity(Intent(this@MainActivity,Chat::class.java))
-//        }
-//
-//    }
-//    @RequiresApi(Build.VERSION_CODES.O)
-//    private fun webViewSetUp(webView :WebView){
-//        webView.webViewClient = WebViewClient()
-//        webView.apply{
-//            settings.javaScriptEnabled = true
-//            settings.safeBrowsingEnabled = true
-//            loadUrl("https://hackathon-kxd3fntti-kinsteve.vercel.app/")
-//
-//        }
-//
-//
-//    }
-//
-//    override fun onBackPressed() {
-//        if (webView.canGoBack()) {
-//            webView.goBack()
-//        } else {
-//            super.onBackPressed()
-//        }
-//    }
-//
-//    }
-//
-
 package com.example.govscheme
 
-import android.animation.ObjectAnimator
+import android.Manifest
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.net.ConnectivityManager
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
 import android.view.View
-import android.view.animation.OvershootInterpolator
-import android.webkit.WebResourceError
-import android.webkit.WebResourceRequest
-import android.webkit.WebView
-import android.webkit.WebViewClient
-import android.widget.ImageView
-import android.widget.Toast
+import android.webkit.*
+import android.widget.*
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import com.example.govscheme.databinding.ActivityMainBinding
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var webView: WebView
+    private var binding: ActivityMainBinding? = null
 
     private var isFabOpen = false
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
-
-        var binding: ActivityMainBinding? = null
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding?.root)
-        webView = findViewById<WebView>(R.id.webView)
+        webView = findViewById(R.id.webView)
+
+
         webViewSetUp(webView)
+//        val url = "https://hackathon-chi-five.vercel.app/"
+//        webView.loadUrl(url)
+        webView.apply{
+            settings.javaScriptEnabled = true
+            settings.safeBrowsingEnabled = true
+            loadUrl("https://hackathon-chi-five.vercel.app/")
+        }
+
+
 
         binding?.help?.setOnClickListener {
             startActivity(Intent(this@MainActivity, Chat::class.java))
         }
 
+
+
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     private fun webViewSetUp(webView: WebView) {
         webView.webViewClient = object : WebViewClient() {
+
+
+
+            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+                super.onPageStarted(view, url, favicon)
+                binding?.progressBar?.visibility = View.VISIBLE
+            }
+
+            override fun onPageFinished(view: WebView?, url: String?) {
+                super.onPageFinished(view, url)
+                binding?.progressBar?.visibility = View.GONE
+            }
+
+
             override fun onReceivedError(
                 view: WebView?,
                 request: WebResourceRequest?,
-                error: WebResourceError?
+                error: WebResourceError?,
             ) {
                 super.onReceivedError(view, request, error)
 
-                val imageError = findViewById<ImageView>(R.id.error_image)
-//                val errorMessage = findViewById<TextView>(R.id.text_error_message)
-                imageError.setImageResource(R.drawable.two)
-//                errorMessage.text = "Error loading webpage"
-                webView.visibility = View.GONE
-                imageError.visibility = View.VISIBLE
-                Toast.makeText(applicationContext, "Error loading webpage", Toast.LENGTH_SHORT)
-                    .show()
-                view?.loadData("", "text/html", null)
+                showErrorView(webView)
+            }
+
+
+            override fun shouldOverrideUrlLoading(
+                view: WebView?,
+                request: WebResourceRequest?,
+            ): Boolean {
+                val url = request?.url?.toString()
+
+                if (url != null && isWebUrl(url)) {
+                    if (!isConnectedToInternet()) {
+                        showErrorView(webView)
+                        Toast.makeText(
+                            applicationContext,
+                            "No internet connection",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        return true
+                    }
+
+                }
+
+
+
+                return super.shouldOverrideUrlLoading(view, request)
+
+
             }
         }
 
-        val cm = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
-        val activeNetwork = cm.activeNetworkInfo
-        val isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting
 
-        if (!isConnected) {
-            val imageError = findViewById<ImageView>(R.id.error_image)
-//            val errorMessage = findViewById<TextView>(R.id.text_error_message)
-            imageError.setImageResource(R.drawable.two)
-            webView.visibility = View.GONE
-            imageError.visibility = View.VISIBLE
-//            errorMessage.text = "No internet connection"
-            Toast.makeText(applicationContext, "No internet connection", Toast.LENGTH_SHORT)
-                .show()
-        } else {
-            webView.apply {
-                settings.javaScriptEnabled = true
-                settings.safeBrowsingEnabled = true
-                loadUrl("https://hackathon-kxd3fntti-kinsteve.vercel.app/")
+    }
+
+
+
+    private fun showErrorView(webView: WebView) {
+        val imageError = findViewById<ImageView>(R.id.error_image)
+        val retryButton = findViewById<Button>(R.id.retry_button)
+        val errorMessage = findViewById<TextView>(R.id.text_error_message)
+
+//        errorMessage.text = "Error loading webpage"
+        errorMessage.text = "Please Check your Internet Connection"
+        imageError.setImageResource(R.drawable.no_connection)
+        webView.visibility = View.GONE
+        imageError.visibility = View.VISIBLE
+        retryButton.visibility = View.VISIBLE
+        errorMessage.visibility = View.VISIBLE
+
+        retryButton.setOnClickListener {
+            webView.visibility = View.VISIBLE
+            imageError.visibility = View.GONE
+            retryButton.visibility = View.GONE
+            errorMessage.visibility = View.GONE
+
+            val url = webView.url
+            if (isWebUrl(url!!)) {
+                webView.loadUrl(url)
             }
+
         }
     }
+
+    private fun isWebUrl(url: String): Boolean {
+        return Patterns.WEB_URL.matcher(url).matches()
+    }
+
+    private fun isConnectedToInternet(): Boolean {
+        val connectivityManager =
+            getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfo = connectivityManager.activeNetworkInfo
+        return networkInfo != null && networkInfo.isConnected
+    }
+
 
     override fun onBackPressed() {
         if (webView.canGoBack()) {
@@ -148,4 +156,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
+
+
 

@@ -1,26 +1,24 @@
 package com.example.govscheme
 
-import android.annotation.SuppressLint
 import android.app.Dialog
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.telecom.Call
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.govscheme.databinding.DialogBackHelpBinding
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
-import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
 
 class Chat: AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
-    private lateinit var welcomeTextView: TextView
+    private lateinit var welcomeImageView: ImageView
     private lateinit var messageEditText: EditText
     private lateinit var sendButton: ImageButton
     private lateinit var messageList: MutableList<Message>
@@ -35,13 +33,33 @@ class Chat: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
 
+
+
+        Handler().postDelayed({
+            messageList.add(Message("Hey! How may I assist you with Indian Government schemes today? ",Message.SENT_BY_BOT))
+            // Your code to display the first message of your chatbot here
+        }, 500) // 2000 milliseconds = 2 seconds delay
+
+
         messageList = mutableListOf()
 
         recyclerView = findViewById(R.id.recycler_view)
-        welcomeTextView = findViewById(R.id.welcome_text)
+        welcomeImageView = findViewById(R.id.welcome_text)
         messageEditText = findViewById(R.id.message_edit_text)
         sendButton = findViewById(R.id.send_btn)
 
+//        messageEditText.setOnClickListener{
+//            Toast.makeText(this@Chat,"mess",Toast.LENGTH_LONG).show()
+//
+//        }
+
+        messageEditText.setOnFocusChangeListener { view, hasFocus ->
+            if (hasFocus) {
+                // Your code to perform when the EditText gains focus
+                welcomeImageView.visibility = View.GONE
+//                welcomeImageView.alpha = 0.8f
+            }
+        }
         // setup recycler view
         messageAdapter = MessageAdapter(messageList)
         recyclerView.adapter = messageAdapter
@@ -49,12 +67,17 @@ class Chat: AppCompatActivity() {
             stackFromEnd = true
         }
 
+
+
+
         sendButton.setOnClickListener {
             val question = messageEditText.text.toString().trim()
             addToChat(question, Message.SENT_BY_ME)
             messageEditText.text.clear()
             callAPI(question)
-            welcomeTextView.visibility = View.GONE
+            welcomeImageView.visibility = View.GONE
+//            welcomeImageView.alpha = 0.5f
+
         }
     }
 
@@ -69,11 +92,12 @@ class Chat: AppCompatActivity() {
     }
 
     private fun addResponse(response: String) {
-        messageList.removeAt(messageList.size - 1)
+        messageList.removeAt(messageList.size -1)
         addToChat(response, Message.SENT_BY_BOT)
     }
 
     private fun callAPI(question: String) {
+
         // okhttp
         messageList.add(Message("Typing... ", Message.SENT_BY_BOT))
 
@@ -93,13 +117,6 @@ class Chat: AppCompatActivity() {
             .build()
 
         client.newCall(request).enqueue(object : Callback {
-//            override fun onFailure(call: Call, e: IOException) {
-//
-//            }
-
-//            override fun onResponse(call: Call, response: Response) {
-//
-//            }
 
             override fun onFailure(call: okhttp3.Call, e: IOException) {
                 addResponse("Failed to load response due to ${e.message}")
@@ -130,7 +147,6 @@ class Chat: AppCompatActivity() {
     }
 
     private fun chatBack() {
-        Toast.makeText(this@Chat,"chat",Toast.LENGTH_LONG).show()
         val chatBack = Dialog(this)
         chatBack.setCancelable(false)
         val binding = DialogBackHelpBinding.inflate(layoutInflater)

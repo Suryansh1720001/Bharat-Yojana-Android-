@@ -1,65 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Chat">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recycler_view"
-        android:layout_above="@id/bottom_layout"
-        />
-
-    <TextView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/welcome_text"
-        android:layout_centerInParent="true"
-        android:text="Welcome to the Gov Scheme"
-        android:gravity="center"
-        android:textSize="28dp"
-        />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/bottom_layout"
-        android:padding="8dp"
+        android:background="@drawable/heading_chat_bg"
+        android:id="@+id/fl_heading_chat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         >
-
-        <EditText
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="5dp"
+
+            >
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/chatbot_image"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Help Desk"
+                android:layout_marginStart="5dp"
+                android:textStyle="bold"
+                android:fontFamily="monospace"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                />
+
+
+
+        </LinearLayout>
+
+
+
+
+
+    </FrameLayout>
+
+
+
+
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/fl_heading_chat"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_layout"
+        android:id="@+id/recycler_view"
+        />
+
+    <ImageView
+        android:id="@+id/welcome_text"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/chat_bot"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+
+    <LinearLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:padding="8dp"
+        android:weightSum="5"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <EditText
             android:id="@+id/message_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:background="@drawable/rounded_corner"
             android:hint="Write here"
             android:padding="16dp"
-            android:background="@drawable/rounded_corner"
-            android:layout_centerInParent="true"
-            android:layout_toLeftOf="@id/send_btn"
-            />
+            android:textColorHint="@color/black" />
 
         <ImageButton
             android:id="@+id/send_btn"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerInParent="true"
             android:layout_marginStart="10dp"
-            android:padding="8dp"
-            android:src="@drawable/baseline_send_24"
+            android:layout_weight="1"
             android:background="?attr/selectableItemBackgroundBorderless"
-            />
+            android:padding="8dp"
+            android:src="@drawable/baseline_send_24" />
+
+
+    </LinearLayout>
 
 
 
-    </RelativeLayout>
 
 
-
-
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
