@@ -1,4 +1,4 @@
-package com.example.govscheme
+package com.yojana.bharat
 
 class Message(var message: String, var sentBy: String) {
 

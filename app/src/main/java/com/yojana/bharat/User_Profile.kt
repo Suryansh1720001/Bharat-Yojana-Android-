@@ -1,10 +1,9 @@
-package com.example.govscheme
+package com.yojana.bharat
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import com.example.govscheme.databinding.ActivityMainBinding
 import com.example.govscheme.databinding.ActivityUserProfileBinding
 
 class User_Profile : AppCompatActivity() {
@@ -24,9 +23,6 @@ class User_Profile : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityUserProfileBinding.inflate(layoutInflater)
         setContentView(binding?.root)
-
-
-
 
 
     }

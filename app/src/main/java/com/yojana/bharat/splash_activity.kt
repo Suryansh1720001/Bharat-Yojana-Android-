@@ -1,8 +1,9 @@
-package com.example.govscheme
+package com.yojana.bharat
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.govscheme.R
 
 class splash_activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

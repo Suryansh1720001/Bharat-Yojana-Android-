@@ -1,4 +1,4 @@
-package com.example.govscheme
+package com.yojana.bharat
 
 import org.junit.Test
 

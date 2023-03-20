@@ -1,4 +1,4 @@
-package com.example.govscheme
+package com.yojana.bharat
 
 import android.app.Dialog
 import android.os.Bundle
@@ -9,6 +9,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.govscheme.R
 import com.example.govscheme.databinding.DialogBackHelpBinding
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
@@ -36,7 +37,10 @@ class Chat: AppCompatActivity() {
 
 
         Handler().postDelayed({
-            messageList.add(Message("Hey! How may I assist you with Indian Government schemes today? ",Message.SENT_BY_BOT))
+            messageList.add(
+                Message("Hey! How may I assist you with Indian Government schemes today? ",
+                    Message.SENT_BY_BOT)
+            )
             // Your code to display the first message of your chatbot here
         }, 500) // 2000 milliseconds = 2 seconds delay
 

@@ -1,9 +1,7 @@
-package com.example.govscheme
+package com.yojana.bharat
 
-import android.Manifest
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.ConnectivityManager
 import android.os.Build
@@ -14,6 +12,7 @@ import android.webkit.*
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.example.govscheme.R
 import com.example.govscheme.databinding.ActivityMainBinding
 
 
@@ -31,8 +30,6 @@ class MainActivity : AppCompatActivity() {
 
 
         webViewSetUp(webView)
-//        val url = "https://hackathon-chi-five.vercel.app/"
-//        webView.loadUrl(url)
         webView.apply{
             settings.javaScriptEnabled = true
             settings.safeBrowsingEnabled = true
@@ -42,8 +39,13 @@ class MainActivity : AppCompatActivity() {
 
 
         binding?.help?.setOnClickListener {
-            startActivity(Intent(this@MainActivity, Chat::class.java))
+            if(isConnectedToInternet()) {
+                startActivity(Intent(this@MainActivity, Chat::class.java))
+            }else{
+                Toast.makeText(this@MainActivity,"Kindly Check your network connection",Toast.LENGTH_SHORT).show()
+            }
         }
+
 
 
 
@@ -57,11 +59,13 @@ class MainActivity : AppCompatActivity() {
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)
                 binding?.progressBar?.visibility = View.VISIBLE
+
             }
 
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
                 binding?.progressBar?.visibility = View.GONE
+
             }
 
 
@@ -123,6 +127,7 @@ class MainActivity : AppCompatActivity() {
 
         retryButton.setOnClickListener {
             webView.visibility = View.VISIBLE
+            binding?.progressBar?.visibility = View.VISIBLE
             imageError.visibility = View.GONE
             retryButton.visibility = View.GONE
             errorMessage.visibility = View.GONE
@@ -131,6 +136,7 @@ class MainActivity : AppCompatActivity() {
             if (isWebUrl(url!!)) {
                 webView.loadUrl(url)
             }
+
 
         }
     }

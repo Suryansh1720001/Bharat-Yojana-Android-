@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Chat">
+    tools:context="com.yojana.bharat.Chat">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -30,6 +30,8 @@
                 android:layout_height="30dp"
                 android:src="@drawable/chatbot_image"
                 />
+
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -93,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="4"
             android:background="@drawable/rounded_corner"
-            android:hint="Write here"
+            android:hint="Ask me Anything..."
             android:padding="16dp"
             android:textColorHint="@color/black" />
 

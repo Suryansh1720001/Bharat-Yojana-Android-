@@ -1,10 +1,11 @@
-package com.example.govscheme
+package com.yojana.bharat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.govscheme.R
 
 class MessageAdapter(private val messageList: List<Message>) :
     RecyclerView.Adapter<MessageAdapter.MyViewHolder>() {
