@@ -1,6 +1,6 @@
 # Rajasthan IT Hackathon
 <br>
-<a href = "https://raj-it-hackathon.pwskills.com/"><img src ="https://github.com/NehaVns/Hackathon/blob/master/ImageWebsite.png" width="100%" heigth="500" alt="Cover Image"></a>
+<a href = "https://user-images.githubusercontent.com/85965606/226506714-b5104fe1-a61e-417f-aaf9-d06c4c1f8dd6.png" width="100%" heigth="500" alt="Cover Image"></a>
 <br>
 
 ## 📱 Project: Bharat Yojna 
