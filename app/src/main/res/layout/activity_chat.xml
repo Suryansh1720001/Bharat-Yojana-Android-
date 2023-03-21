@@ -97,6 +97,7 @@
             android:background="@drawable/rounded_corner"
             android:hint="Ask me Anything..."
             android:padding="16dp"
+            android:textColor="@color/black"
             android:textColorHint="@color/black" />
 
         <ImageButton

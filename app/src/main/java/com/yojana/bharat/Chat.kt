@@ -52,10 +52,6 @@ class Chat: AppCompatActivity() {
         messageEditText = findViewById(R.id.message_edit_text)
         sendButton = findViewById(R.id.send_btn)
 
-//        messageEditText.setOnClickListener{
-//            Toast.makeText(this@Chat,"mess",Toast.LENGTH_LONG).show()
-//
-//        }
 
         messageEditText.setOnFocusChangeListener { view, hasFocus ->
             if (hasFocus) {
@@ -116,7 +112,7 @@ class Chat: AppCompatActivity() {
 
         val request = Request.Builder()
             .url("https://api.openai.com/v1/completions")
-            .header("Authorization", "Bearer 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")
+            .header("Authorization", "Bearer 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")
             .post(body)
             .build()
 
