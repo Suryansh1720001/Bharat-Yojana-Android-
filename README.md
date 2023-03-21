@@ -26,7 +26,7 @@ person.
 * It also provides a complete scheme list, the user can search among them for a specific scheme and can get the details out for it.
 
  
-### Salient features - Chat bot
+###  Salient features - Chat bot
 There is a chatbot in the application that would assist the users in queries related to the schemes by the government.
 <br>
 ## <h1 align=center>Screenshots 📸</h1>
@@ -43,6 +43,14 @@ There is a chatbot in the application that would assist the users in queries rel
 - API-Keys
 - XML
 - Firebase
+
+# 💻 Our Website
+We have also developed an application for our website with added functionalities and features.
+<br>
+<a href="https://github.com/kinsteve/Hackathon/edit/main/" target = "blank">⭐ Check out here </a>
+<br>
+<br>
+
 
 ## 🥂 Current Participation of this Repo 
 
