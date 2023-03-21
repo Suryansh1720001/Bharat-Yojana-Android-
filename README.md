@@ -4,7 +4,7 @@
 
 
 
-# 📱 Project: Bharat Yojna 
+# 📱 Project: Bharat Yojana 
 
 Despite	the	existence		of	various government		schemes	catering	to
 diverse	needs,		people	in	India		face challenges	in	availing	themselves	of the	benefits	of	these	schemes	due		to
