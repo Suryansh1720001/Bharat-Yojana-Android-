@@ -32,7 +32,7 @@ There is a chatbot in the application that would assist the users in queries rel
 
 ||||
 |:----------------------------------------:|:-----------------------------------------:|:-----------------------------------------:|
-| <img src= "https://user-images.githubusercontent.com/85965606/226503930-ed6fab0e-e57d-4b3c-aa66-a7e5077d43ae.png" width="80%" height="70%"> | <img src= "https://user-images.githubusercontent.com/85965606/226503993-1640441f-d677-4207-b9be-57caf4eabfad.png" width="80%" height="70%"> | <img src= "https://user-images.githubusercontent.com/85965606/226504363-c54e0ba3-b5d1-4292-995f-7adc1102f634.png" width="80%" height="70%"> |
+| <img src= "https://user-images.githubusercontent.com/85965606/226503930-ed6fab0e-e57d-4b3c-aa66-a7e5077d43ae.png" width="80%" height="70%"> | <img src= "https://user-images.githubusercontent.com/85965606/226506396-0650a4ef-b075-4a72-8f91-789d4f9f3331.png" width="80%" height="70%"> | <img src= "https://user-images.githubusercontent.com/85965606/226504363-c54e0ba3-b5d1-4292-995f-7adc1102f634.png" width="80%" height="70%"> |
 | <img src= "https://user-images.githubusercontent.com/85965606/226504455-ba9734a1-1979-432e-94d6-919f3968781c.png" width="80%" height="70%"> | <img src= "https://user-images.githubusercontent.com/85965606/226503993-1640441f-d677-4207-b9be-57caf4eabfad.png" width="80%" height="70%"> | <img src= "https://user-images.githubusercontent.com/85965606/226504177-caa433b2-071f-4f83-b4c7-f71904ce29dd.png" width="80%" height="70%"> |
 |  | <img src= "https://user-images.githubusercontent.com/85965606/226504198-ca63348d-39d1-4a7f-a9e2-80c819753932.png" width="80%" height="70%">  |
 
@@ -44,5 +44,4 @@ There is a chatbot in the application that would assist the users in queries rel
 - Firebase
 - EJS
 - Node.js
-
 
