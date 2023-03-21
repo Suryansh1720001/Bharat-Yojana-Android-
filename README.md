@@ -1,7 +1,8 @@
 # Rajasthan IT Hackathon
-<br>
-<a href = "https://user-images.githubusercontent.com/85965606/226506714-b5104fe1-a61e-417f-aaf9-d06c4c1f8dd6.png" width="100%" heigth="500" alt="Cover Image"></a>
-<br>
+
+![image](https://user-images.githubusercontent.com/85965606/226506989-4ea0e38f-e26e-4e9d-956b-a09861efed4b.png)
+
+
 
 ## 📱 Project: Bharat Yojna 
 
@@ -44,4 +45,5 @@ There is a chatbot in the application that would assist the users in queries rel
 - Firebase
 - EJS
 - Node.js
+
 
