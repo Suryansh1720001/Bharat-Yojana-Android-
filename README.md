@@ -47,7 +47,7 @@ There is a chatbot in the application that would assist the users in queries rel
 # 💻 Our Website
 We have also developed an application for our website with added functionalities and features.
 <br>
-<a href="https://github.com/kinsteve/Hackathon/edit/main/" target = "blank">⭐ Check out here </a>
+<a href="https://github.com/Suryansh1720001/Bharat-Yojana-Android-" target = "blank">⭐ Check out here </a>
 <br>
 <br>
 
