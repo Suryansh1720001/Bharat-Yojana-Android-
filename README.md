@@ -1,10 +1,10 @@
-# Rajasthan IT Hackathon
+# Rajasthan IT Hackathon 
 
 ![image](https://user-images.githubusercontent.com/85965606/226506989-4ea0e38f-e26e-4e9d-956b-a09861efed4b.png)
 
 
 
-## 📱 Project: Bharat Yojna 
+# 📱 Project: Bharat Yojna 
 
 Despite	the	existence		of	various government		schemes	catering	to
 diverse	needs,		people	in	India		face challenges	in	availing	themselves	of the	benefits	of	these	schemes	due		to
@@ -40,10 +40,12 @@ There is a chatbot in the application that would assist the users in queries rel
 ## 🖥 Technology Used
 
 - Kotlin
-- API
+- API-Keys
 - XML
 - Firebase
-- EJS
-- Node.js
+
+## 🥂 Current Participation of this Repo 
+
+![image](https://user-images.githubusercontent.com/85965606/226508185-a25c62fa-9ab3-493a-bb86-c78015b99310.png)
 
 
