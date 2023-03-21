@@ -44,6 +44,12 @@ There is a chatbot in the application that would assist the users in queries rel
 - XML
 - Firebase
 
+
+## WorkFlow
+
+![image](https://user-images.githubusercontent.com/85965606/226523270-dd16599e-4f56-4c9a-865f-9d383a03398f.png)
+
+
 # 💻 Our Website
 We have also developed an application for our website with added functionalities and features.
 <br>
