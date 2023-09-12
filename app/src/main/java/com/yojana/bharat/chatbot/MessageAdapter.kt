@@ -1,11 +1,12 @@
-package com.yojana.bharat
+package com.yojana.bharat.chatbot
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.govscheme.R
+import com.yojana.bharat.R
+
 
 class MessageAdapter(private val messageList: List<Message>) :
     RecyclerView.Adapter<MessageAdapter.MyViewHolder>() {

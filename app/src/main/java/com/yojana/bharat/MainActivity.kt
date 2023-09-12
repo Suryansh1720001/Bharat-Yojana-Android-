@@ -12,9 +12,9 @@ import android.webkit.*
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.example.govscheme.R
-import com.example.govscheme.databinding.ActivityMainBinding
+import com.yojana.bharat.chatbot.Chat
 
+import com.yojana.bharat.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var webView: WebView
@@ -47,8 +47,6 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
-
     }
 
     private fun webViewSetUp(webView: WebView) {
@@ -75,7 +73,6 @@ class MainActivity : AppCompatActivity() {
                 error: WebResourceError?,
             ) {
                 super.onReceivedError(view, request, error)
-
                 showErrorView(webView)
             }
 
@@ -98,7 +95,6 @@ class MainActivity : AppCompatActivity() {
                     }
 
                 }
-
 
 
                 return super.shouldOverrideUrlLoading(view, request)

@@ -1,4 +1,4 @@
-package com.yojana.bharat
+package com.yojana.bharat.chatbot
 
 import android.app.Dialog
 import android.os.Bundle
@@ -9,8 +9,8 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.govscheme.R
-import com.example.govscheme.databinding.DialogBackHelpBinding
+import com.yojana.bharat.R
+import com.yojana.bharat.databinding.DialogBackHelpBinding
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
 import org.json.JSONException
@@ -39,7 +39,8 @@ class Chat: AppCompatActivity() {
         Handler().postDelayed({
             messageList.add(
                 Message("Hey! How may I assist you with Indian Government schemes today? ",
-                    Message.SENT_BY_BOT)
+                    Message.SENT_BY_BOT
+                )
             )
             // Your code to display the first message of your chatbot here
         }, 500) // 2000 milliseconds = 2 seconds delay
@@ -102,9 +103,9 @@ class Chat: AppCompatActivity() {
         messageList.add(Message("Typing... ", Message.SENT_BY_BOT))
 
         val jsonBody = JSONObject().apply {
-            put("model", "text-davinci-003")
+            put("model", "babbage:ft-personal-2023-04-05-19-43-58")
             put("prompt", question)
-            put("max_tokens", 4000)
+            put("max_tokens", 15)
             put("temperature", 0)
         }
 //        val body = RequestBody.create(jsonBody.toString(), JSON)
@@ -112,7 +113,7 @@ class Chat: AppCompatActivity() {
 
         val request = Request.Builder()
             .url("https://api.openai.com/v1/completions")
-            .header("Authorization", "Bearer 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")
+            .header("Authorization", "Bearer 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")
             .post(body)
             .build()
 
