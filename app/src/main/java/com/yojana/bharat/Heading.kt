@@ -6,9 +6,7 @@ data class Heading(
     val category: String,
     val image: Int,
     val title: String,
-
     val objective: String,
-
     val age: String,
     val gender: String,
     val income: String,

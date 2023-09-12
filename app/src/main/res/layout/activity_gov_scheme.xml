@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:id="@+id/cl_govScheme"
     android:layout_height="match_parent"
-    tools:context="com.yojana.bharat.Gov_scheme">
+    tools:context="com.yojana.bharat.activity.Gov_scheme">
 
     <FrameLayout
         android:layout_width="match_parent"

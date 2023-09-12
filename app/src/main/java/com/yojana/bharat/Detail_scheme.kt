@@ -1,14 +1,11 @@
 package com.yojana.bharat
 
-import android.content.ClipData
-import android.content.ClipboardManager
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.PopupMenu
 import android.widget.Toast
-
 import com.yojana.bharat.databinding.ActivityDetailSchemeBinding
 
 class Detail_scheme : AppCompatActivity() {

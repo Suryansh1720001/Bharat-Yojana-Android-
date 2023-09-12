@@ -23,7 +23,7 @@
             android:name=".Detail_scheme"
             android:exported="true"></activity>
         <activity
-            android:name=".Gov_scheme"
+            android:name=".activity.Gov_scheme"
             android:exported="true"></activity>
         <activity
             android:name=".forget_password"
