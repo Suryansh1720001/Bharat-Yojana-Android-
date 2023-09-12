@@ -11,6 +11,16 @@ diverse	needs,		people	in	India		face challenges	in	availing	themselves	of the	b
 inadequate	information	dissemination and	the	inadequacy	of		centralized
 records.
 <br>
+
+
+## Maintainers
+
+| Maintainer   | Maintainer |
+| :----------: | :----------: |
+| <a href="https://github.com/Suryansh1720001"><img src="https://avatars.githubusercontent.com/Suryansh1720001" width=150px height=150px /></a><br>Suryansh Prajapati<br><a href="https://www.linkedin.com/in/itssuryansh/"><img src="https://t0.gstatic.com/images?q=tbn:ANd9GcRMCA3j2A8hfLl9p5UAU5nd9lvqLlNZvqoU4xOsZ192uH4IYS6X" width="32px" height="32px"></a> | <a href="https://github.com/NehaVns"><img src="https://avatars.githubusercontent.com/NehaVns" width=150px height=150px /></a><br>Neha Kumari<br><a href="https://www.linkedin.com/in/nehavns/"><img src="https://t0.gstatic.com/images?q=tbn:ANd9GcRMCA3j2A8hfLl9p5UAU5nd9lvqLlNZvqoU4xOsZ192uH4IYS6X" width="32px" height="32px"></a> |
+<br>
+
+
 ## 📜App Description
 * In order to solve this problem we have developed an android application
 “BharaYojna” that caters to the demands
